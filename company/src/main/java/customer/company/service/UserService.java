@@ -2,6 +2,7 @@ package customer.company.service;
 
 import customer.company.dto.AuthRequest;
 import customer.company.dto.AuthResponse;
+import customer.company.dto.UserResponse;
 import customer.company.entities.User;
 import customer.company.exceptions.ApplicationException;
 import customer.company.repositories.UserRepository;
@@ -10,6 +11,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -30,6 +32,9 @@ public class UserService implements UserDetailsService {
 
     @Autowired
     private PasswordEncoder encoder;
+
+    @Value("${jwt.secret}")
+    private  String SECRET;
 
 
 
@@ -75,7 +80,7 @@ public class UserService implements UserDetailsService {
     }
 
     private Key getSignInKey() {
-        byte[] keyBytes = Decoders.BASE64.decode("77397A244326462948404D635166546A576E5A7234753778214125442A472D4B");
+        byte[] keyBytes = Decoders.BASE64.decode(SECRET);
         return Keys.hmacShaKeyFor(keyBytes);
     }
 
@@ -83,10 +88,42 @@ public class UserService implements UserDetailsService {
         return userRepository.findById(userID).orElse(null);
     }
 
-    public User createUser(User user) {
+    public UserResponse createUser(User user) {
+        // Encode the password
         String password = encoder.encode(user.getPassword());
         user.setPassword(password);
-        return userRepository.save(user);
+
+        // Save the user
+        User savedUser = userRepository.save(user);
+
+        // Create and return the RegisterResponse
+        UserResponse response = new UserResponse();
+        response.setUserId(savedUser.getUserId());
+        response.setFirst_name(savedUser.getFirst_name());
+        response.setLast_name(savedUser.getLast_name());
+        response.setStreet(savedUser.getStreet());
+        response.setAddress(savedUser.getAddress());
+        response.setCity(savedUser.getCity());
+        response.setState(savedUser.getState());
+        response.setEmail(savedUser.getEmail());
+        response.setPhone(savedUser.getPhone());
+
+        return response;
+    }
+    public void deleteUser(Long userID) {
+        userRepository.deleteById(userID);
+    }
+
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
+    }
+
+    public User updateUser(Long userID, User user) {
+        if (userRepository.existsById(userID)) {
+            user.setUserId(userID);
+            return userRepository.save(user);
+        }
+        return null; // Handle not found scenario
     }
 
     public UserDetails loadUserByUsername(String username) {

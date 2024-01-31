@@ -27,7 +27,7 @@ import java.util.function.Function;
 @Component
 @RequiredArgsConstructor
 public class JwtAuthFilter extends OncePerRequestFilter {
-    private JwtService jwtService;
+    private final JwtService jwtService;
 
     private final UserDetailsService userDetailsService;
     @Override
@@ -47,7 +47,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
         userEmail = jwtService.extractUsername(jwt);
         if (userEmail != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             User userDetails = (User) this.userDetailsService.loadUserByUsername(userEmail);
-            if (isTokenValid(jwt, userDetails)) {
+            if (jwtService.validateToken(jwt, userDetails)) {
                 UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
                         userDetails,
                         null,
