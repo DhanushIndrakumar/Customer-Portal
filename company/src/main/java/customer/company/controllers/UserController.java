@@ -2,7 +2,7 @@ package customer.company.controllers;
 
 import customer.company.dto.AuthRequest;
 import customer.company.dto.AuthResponse;
-import customer.company.dto.UserResponse;
+import customer.company.dto.UserDTO;
 import customer.company.entities.User;
 import customer.company.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,13 +18,13 @@ public class UserController {
     private UserService userService;
 
     @GetMapping
-    public List<UserResponse> getAllUsers() {
+    public List<UserDTO> getAllUsers() {
         return userService.getAllUsers();
     }
 
 
     @PostMapping("auth/users/register")
-    public UserResponse createUser(@RequestBody User user) {
+    public UserDTO createUser(@RequestBody User user) {
         return userService.createUser(user);
     }
 
@@ -34,15 +34,14 @@ public class UserController {
     }
 
     @GetMapping("users/{userID}")
-    public UserResponse getUserById(@PathVariable Long userID) {
+    public UserDTO getUserById(@PathVariable Long userID) {
         return userService.getUserById(userID);
     }
 
     @PutMapping("users/{userID}")
-    public User updateUser(@PathVariable Long userID, @RequestBody User user) {
-        return userService.updateUser(userID, user);
+    public UserDTO updateUser(@PathVariable Long userID, @RequestBody UserDTO userDTO) {
+        return userService.updateUser(userID, userDTO);
     }
-
     @DeleteMapping("users/{userID}")
     public void deleteUser(@PathVariable Long userID) {
         userService.deleteUser(userID);

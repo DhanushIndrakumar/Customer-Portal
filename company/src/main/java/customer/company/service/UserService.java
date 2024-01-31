@@ -2,7 +2,7 @@ package customer.company.service;
 
 import customer.company.dto.AuthRequest;
 import customer.company.dto.AuthResponse;
-import customer.company.dto.UserResponse;
+import customer.company.dto.UserDTO;
 import customer.company.entities.User;
 import customer.company.exceptions.ApplicationException;
 import customer.company.repositories.UserRepository;
@@ -81,11 +81,11 @@ public class UserService implements UserDetailsService {
         return Keys.hmacShaKeyFor(keyBytes);
     }
 
-    public UserResponse getUserById(Long userID) {
+    public UserDTO getUserById(Long userID) {
         User user = userRepository.findById(userID).orElse(null);
 
         if (user != null) {
-            UserResponse response = new UserResponse();
+            UserDTO response = new UserDTO();
             response.setUserId(user.getUserId());
             response.setFirst_name(user.getFirst_name());
             response.setLast_name(user.getLast_name());
@@ -102,7 +102,7 @@ public class UserService implements UserDetailsService {
         }
     }
 
-    public UserResponse createUser(User user) {
+    public UserDTO createUser(User user) {
         // Encode the password
         String password = encoder.encode(user.getPassword());
         user.setPassword(password);
@@ -110,8 +110,8 @@ public class UserService implements UserDetailsService {
         // Save the user
         User savedUser = userRepository.save(user);
 
-        // Create and return the RegisterResponse
-        UserResponse response = new UserResponse();
+        // Create and return the UserResponse
+        UserDTO response = new UserDTO();
         response.setUserId(savedUser.getUserId());
         response.setFirst_name(savedUser.getFirst_name());
         response.setLast_name(savedUser.getLast_name());
@@ -128,12 +128,12 @@ public class UserService implements UserDetailsService {
         userRepository.deleteById(userID);
     }
 
-    public List<UserResponse> getAllUsers() {
+    public List<UserDTO> getAllUsers() {
         List<User> users = userRepository.findAll();
-        List<UserResponse> userResponses = new ArrayList<>();
+        List<UserDTO> userResponses = new ArrayList<>();
 
         for (User user : users) {
-            UserResponse userResponse = new UserResponse();
+            UserDTO userResponse = new UserDTO();
             userResponse.setUserId(user.getUserId());
             userResponse.setFirst_name(user.getFirst_name());  // Assuming these getter methods exist
             userResponse.setLast_name(user.getLast_name());
@@ -149,13 +149,50 @@ public class UserService implements UserDetailsService {
         return userResponses;
     }
 
-    public User updateUser(Long userID, User user) {
-        if (userRepository.existsById(userID)) {
-            user.setUserId(userID);
-            return userRepository.save(user);
+//    public User updateUser(Long userID, User user) {
+//        if (userRepository.existsById(userID)) {
+//            user.setUserId(userID);
+//            return userRepository.save(user);
+//        }
+//        return null; // Handle not found scenario
+//    }
+public UserDTO updateUser(Long userID, UserDTO userDTO) {
+    if (userRepository.existsById(userID)) {
+        // Fetch the existing user entity from the database
+        User existingUser = userRepository.findById(userID).orElse(null);
+
+        // Update the attributes of the existing user entity with the values from the DTO
+        if (existingUser != null) {
+            existingUser.setFirst_name(userDTO.getFirst_name());
+            existingUser.setLast_name(userDTO.getLast_name());
+            existingUser.setStreet(userDTO.getStreet());
+            existingUser.setAddress(userDTO.getAddress());
+            existingUser.setCity(userDTO.getCity());
+            existingUser.setState(userDTO.getState());
+            existingUser.setEmail(userDTO.getEmail());
+            existingUser.setPhone(userDTO.getPhone());
+
+            // Save the updated user entity
+            User updatedUser = userRepository.save(existingUser);
+
+            // Convert the updated user entity to UserDTO
+            UserDTO updatedUserDTO = new UserDTO();
+            updatedUserDTO.setUserId(updatedUser.getUserId());
+            updatedUserDTO.setFirst_name(updatedUser.getFirst_name());
+            updatedUserDTO.setLast_name(updatedUser.getLast_name());
+            updatedUserDTO.setStreet(updatedUser.getStreet());
+            updatedUserDTO.setAddress(updatedUser.getAddress());
+            updatedUserDTO.setCity(updatedUser.getCity());
+            updatedUserDTO.setState(updatedUser.getState());
+            updatedUserDTO.setEmail(updatedUser.getEmail());
+            updatedUserDTO.setPhone(updatedUser.getPhone());
+
+            return updatedUserDTO;
         }
-        return null; // Handle not found scenario
     }
+    return null; // Handle not found scenario
+}
+
 
     public UserDetails loadUserByUsername(String username) {
         return userRepository.findByEmail(username).orElseThrow(()->new ApplicationException(HttpStatus.FORBIDDEN.value(), "User Not Found",HttpStatus.FORBIDDEN));
