@@ -19,10 +19,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.security.Key;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class UserService implements UserDetailsService {
@@ -84,8 +81,25 @@ public class UserService implements UserDetailsService {
         return Keys.hmacShaKeyFor(keyBytes);
     }
 
-    public User getUserById(Long userID) {
-        return userRepository.findById(userID).orElse(null);
+    public UserResponse getUserById(Long userID) {
+        User user = userRepository.findById(userID).orElse(null);
+
+        if (user != null) {
+            UserResponse response = new UserResponse();
+            response.setUserId(user.getUserId());
+            response.setFirst_name(user.getFirst_name());
+            response.setLast_name(user.getLast_name());
+            response.setStreet(user.getStreet());
+            response.setAddress(user.getAddress());
+            response.setCity(user.getCity());
+            response.setState(user.getState());
+            response.setEmail(user.getEmail());
+            response.setPhone(user.getPhone());
+
+            return response;
+        } else {
+            return null;
+        }
     }
 
     public UserResponse createUser(User user) {
@@ -114,8 +128,25 @@ public class UserService implements UserDetailsService {
         userRepository.deleteById(userID);
     }
 
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
+    public List<UserResponse> getAllUsers() {
+        List<User> users = userRepository.findAll();
+        List<UserResponse> userResponses = new ArrayList<>();
+
+        for (User user : users) {
+            UserResponse userResponse = new UserResponse();
+            userResponse.setUserId(user.getUserId());
+            userResponse.setFirst_name(user.getFirst_name());  // Assuming these getter methods exist
+            userResponse.setLast_name(user.getLast_name());
+            userResponse.setStreet(user.getStreet());
+            userResponse.setAddress(user.getAddress());
+            userResponse.setCity(user.getCity());
+            userResponse.setState(user.getState());
+            userResponse.setEmail(user.getEmail());
+            userResponse.setPhone(user.getPhone());
+
+            userResponses.add(userResponse);
+        }
+        return userResponses;
     }
 
     public User updateUser(Long userID, User user) {

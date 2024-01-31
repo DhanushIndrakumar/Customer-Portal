@@ -18,7 +18,7 @@ public class UserController {
     private UserService userService;
 
     @GetMapping
-    public List<User> getAllUsers() {
+    public List<UserResponse> getAllUsers() {
         return userService.getAllUsers();
     }
 
@@ -34,7 +34,7 @@ public class UserController {
     }
 
     @GetMapping("users/{userID}")
-    public User getUserById(@PathVariable Long userID) {
+    public UserResponse getUserById(@PathVariable Long userID) {
         return userService.getUserById(userID);
     }
 
