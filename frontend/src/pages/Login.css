@@ -1,0 +1,39 @@
+/* Login.css */
+
+div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Set height to full viewport height */
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  label {
+    margin-bottom: 8px; /* Add space below each label */
+  }
+  
+  input {
+    padding: 8px;
+    margin-bottom: 16px; /* Add space below each input field */
+  }
+  
+  button{
+    padding: 10px;
+    background-color: #007bff;
+    color: black;
+    border: black 3px;
+    border-radius: 8px;
+    cursor: pointer;
+    
+  }
+  p {
+    margin-top: 0;
+    color: red;
+  }
+  
