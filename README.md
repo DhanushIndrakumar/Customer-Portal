@@ -101,11 +101,17 @@ git clone https://github.com/DhanushIndrakumar/Sunbase.git
 
   ![Capture6](https://github.com/DhanushIndrakumar/Sunbase/assets/111871670/0c40e0c5-0227-4e24-a113-dccfe85ac9a5)
 
-+  The above figure is a blank image so the user must type /home in the search bar. eg:http://localhost:5173/home
++  The above figure is a blank image so the user must type /home in the search bar. eg:http://localhost:5173/home.
 
    ![Capture7](https://github.com/DhanushIndrakumar/Sunbase/assets/111871670/36f0fdb1-1aaa-4527-b2d3-a64dba2da9fc)
 
-+ When the User clicks on next Button it is directed to login page as shown below and the user is asked to enter email and password post which JWT will be generated and the user will be authenticated
++ When the User clicks on next Button it is directed to login page as shown below and the user is asked to enter email and password post which JWT will be generated and the user will be authenticated.
+
+  ![Capture8](https://github.com/DhanushIndrakumar/Sunbase/assets/111871670/f15d0425-a99c-4829-b077-e6bdb2083807)
+
++ After the user is being authenticated login page is directed to CustomerList page. where the user can view all the customers in the database. Search, delete, Edit and Add users to the database.
+
+  
 
 
 
