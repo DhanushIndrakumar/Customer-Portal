@@ -127,6 +127,10 @@ git clone https://github.com/DhanushIndrakumar/Sunbase.git
 
 + Likewise, add and search operation can also be performed.For instance if the user had to look out for the name Ramesh they can use the search bar and matching records will be shown. The same is being observed in the below image.
 
+  ![Capture13](https://github.com/DhanushIndrakumar/Sunbase/assets/111871670/7999a5b7-841e-48c4-90f2-498322f8a8ab)
+
++ The user can try out Add User operation by himself where the form is already displayed in the webpage. The user nneds to enter details of the customer then click on submit and then refresh the page the customer will be successfully added to the database. 
+
   
 
 
