@@ -50,7 +50,9 @@ git clone https://github.com/DhanushIndrakumar/Sunbase.git
 
 ## Explore Rest APIs
 
-+ Once the backend is working. Developer can go through the OpenApi documentation as it gives more understanding and working of the APIs. 
++ Once the backend is working. Developer can go through the OpenApi documentation as it gives more understanding and working of the APIs.
+
+ ![Capture](https://github.com/DhanushIndrakumar/Sunbase/assets/111871670/8d61a020-e1d0-423f-8148-3b61fb6c3406)
 
 + We can see the API Documentation at
 
