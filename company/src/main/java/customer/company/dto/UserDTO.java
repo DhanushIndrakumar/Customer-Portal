@@ -1,8 +1,10 @@
 package customer.company.dto;
 
+import lombok.Builder;
 import lombok.Data;
 
 @Data
+
 
 public class UserDTO {
     private Long userId;

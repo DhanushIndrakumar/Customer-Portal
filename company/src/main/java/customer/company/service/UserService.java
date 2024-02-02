@@ -148,14 +148,6 @@ public class UserService implements UserDetailsService {
         }
         return userResponses;
     }
-
-//    public User updateUser(Long userID, User user) {
-//        if (userRepository.existsById(userID)) {
-//            user.setUserId(userID);
-//            return userRepository.save(user);
-//        }
-//        return null; // Handle not found scenario
-//    }
 public UserDTO updateUser(Long userID, UserDTO userDTO) {
     if (userRepository.existsById(userID)) {
         // Fetch the existing user entity from the database
