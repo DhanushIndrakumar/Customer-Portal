@@ -61,7 +61,7 @@ git clone https://github.com/DhanushIndrakumar/Sunbase.git
 ```
 + we need to first execute the register and login user APIs for the other APIs to work.
 
-**5. Exploring the Api to insert or create User(Customer) in the database **
+**5. Exploring the Api to insert or create User(Customer) in the database**
 
 + The request body of the API with the response body is shown below:
 
@@ -93,7 +93,11 @@ git clone https://github.com/DhanushIndrakumar/Sunbase.git
 
 + Frontend is being connected to backend APIs using Axios and it can also be performed using Fetch and Redux toolkit.
 
-+  Open
++ Open Frontend Folder through VSCode after cloning and give the command npm run dev
+
++ The first page that appears is as shown below:
+
++  
 
 
 
