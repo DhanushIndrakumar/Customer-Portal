@@ -111,6 +111,12 @@ git clone https://github.com/DhanushIndrakumar/Sunbase.git
 
 + After the user is being authenticated login page is directed to CustomerList page. where the user can view all the customers in the database. Search, delete, Edit and Add users to the database.
 
+  ![Capture9](https://github.com/DhanushIndrakumar/Sunbase/assets/111871670/5998b985-1c83-4c5c-9128-39321f586231)
+
++ Once the user Clicks on Delete button and refresh the page, user will be removed from the database.
+
+  
+
   
 
 
