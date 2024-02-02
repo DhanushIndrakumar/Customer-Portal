@@ -19,9 +19,9 @@
 **1. Clone the application**
 
 ```bash
-git clone https://github.com//
+git clone https://github.com//.
 ```
-**2. Information about the application
+**2. Key points of the application**
 
 + The Backend files and Frontend files for the application are in 2 different folders.
 
@@ -29,14 +29,14 @@ git clone https://github.com//
 
 + The Backend was implemented using Spring Boot through IntellijIdea.
 
-+ The company folder contains backend files
++ The company folder contains backend files.
 
-+ The frontend folder contains frontend files
++ The frontend folder contains frontend files.
 
 
-**2. Change mysql username and password as per your Mysql installation**
+**3. Run the Backend application**
 
-+ open `src/main/resources/application.properties`
++ open `company/src/main/resources/application.properties`
 
 + change `spring.datasource.username` and `spring.datasource.password` as per your mysql installation
 
