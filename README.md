@@ -97,7 +97,9 @@ git clone https://github.com/DhanushIndrakumar/Sunbase.git
 
 + The first page that appears is as shown below:
 
-+  
+  ![Capture6](https://github.com/DhanushIndrakumar/Sunbase/assets/111871670/0c40e0c5-0227-4e24-a113-dccfe85ac9a5)
+
++  The above figure is a blank image so the user must type /home in the search bar. eg:http://localhost:5173/home
 
 
 
