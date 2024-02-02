@@ -18,6 +18,8 @@ const CustomerList = () => {
     email: "",
     phone: "",
   });
+  const [isEditing, setIsEditing] = useState(false);
+  const [editingUser, setEditingUser] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -68,15 +70,65 @@ const CustomerList = () => {
 
   const handleDelete = async (userId) => {
     try {
-      await axios.delete(`http://localhost:2000/users/${userId}`);
+      const token = localStorage.getItem("token");
+      if (!token) {
+        throw new Error("Authentication token not found.");
+      }
+  
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+  
+      const response = await axios.delete(`http://localhost:2000/users/${userId}`, config);
+      console.log("User successfully deleted:", response.data); // Or use any other notification mechanism
+      
+      // Optionally, refresh the customer list to reflect the deletion
+      const updatedCustomers = customers.filter(customer => customer.userId !== userId);
+      setCustomers(updatedCustomers);
+  
     } catch (err) {
       console.error("Error deleting user:", err);
     }
   };
 
-  const handleUpdate = async (userId) => {
-    // You can navigate to an update page or open a modal for editing
-    console.log("Update user with ID:", userId);
+  const showEditForm = (user) => {
+    setEditingUser(user);
+    setIsEditing(true);
+  };
+
+  const handleEditInputChange = (event) => {
+    setEditingUser({ ...editingUser, [event.target.name]: event.target.value });
+  };
+  
+  const handleUpdate = async (event, userId) => {
+    event.preventDefault();
+    try {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        throw new Error("Authentication token not found.");
+      }
+  
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+  
+      await axios.put(`http://localhost:2000/users/${userId}`, editingUser, config);
+      console.log("User successfully updated");
+  
+      // Update the local customers state to reflect changes
+      const updatedCustomers = customers.map((customer) =>
+        customer.userId === userId ? { ...customer, ...editingUser } : customer
+      );
+      setCustomers(updatedCustomers);
+  
+      setIsEditing(false); // Close the edit form
+    } catch (err) {
+      console.error("Error updating user:", err);
+    }
   };
 
   return (
@@ -110,12 +162,13 @@ const CustomerList = () => {
               <td>{customer.email}</td>
               <td>{customer.phone}</td>
               <td>
-                <button onClick={() => handleEdit(customer.userId)}>
+                {/* <button onClick={() => handleEdit(customer.userId)}>
                   Edit
-                </button>
+                </button> */}
                 <button onClick={() => handleDelete(customer.userId)}>
                   Delete
                 </button>
+                <button onClick={() => showEditForm(customer)}>Edit</button>
               </td>
             </tr>
           ))}
@@ -182,6 +235,25 @@ const CustomerList = () => {
           <input type="submit" value="Submit" />
         </div>
       </form>
+
+
+      {isEditing && (
+  <div className="editForm">
+    <h2>Edit User</h2>
+    <form onSubmit={(e) => handleUpdate(e, editingUser.userId)}>
+      <input name="first_name" value={editingUser.first_name} onChange={handleEditInputChange} />
+      <input name="last_name" value={editingUser.last_name} onChange={handleEditInputChange} />
+      <input name="street" value={editingUser.street} onChange={handleEditInputChange} />
+      <input name="address" value={editingUser.address} onChange={handleEditInputChange} />
+      <input name="city" value={editingUser.city} onChange={handleEditInputChange} />
+      <input name="state" value={editingUser.state} onChange={handleEditInputChange} />
+      <input name="email" value={editingUser.email} onChange={handleEditInputChange} />
+      <input name="phone" value={editingUser.phone} onChange={handleEditInputChange} />
+      <button type="submit">Save Changes</button>
+      <button onClick={() => setIsEditing(false)}>Cancel</button>
+    </form>
+  </div>
+)}
     </div>
   );
 };
