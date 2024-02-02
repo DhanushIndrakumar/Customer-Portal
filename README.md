@@ -63,6 +63,8 @@ git clone https://github.com/DhanushIndrakumar/Sunbase.git
 
 **5. Exploring the Api to insert or create User(Customer) in the database**
 
++ The register and Login API does not require any authentication as it forms the base for the user details being stored in the database and then authenticated when they attempt to login. 
+
 + The request body of the API with the response body is shown below:
 
   ![Capture2](https://github.com/DhanushIndrakumar/Sunbase/assets/111871670/22f803a8-880f-4c0e-a8b5-bd6336262841)
@@ -100,6 +102,11 @@ git clone https://github.com/DhanushIndrakumar/Sunbase.git
   ![Capture6](https://github.com/DhanushIndrakumar/Sunbase/assets/111871670/0c40e0c5-0227-4e24-a113-dccfe85ac9a5)
 
 +  The above figure is a blank image so the user must type /home in the search bar. eg:http://localhost:5173/home
+
+   ![Capture7](https://github.com/DhanushIndrakumar/Sunbase/assets/111871670/36f0fdb1-1aaa-4527-b2d3-a64dba2da9fc)
+
++ When the User clicks on next Button it is directed to login page as shown below and the user is asked to enter email and password post which JWT will be generated and the user will be authenticated
+
 
 
 
