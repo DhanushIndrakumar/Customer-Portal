@@ -48,7 +48,7 @@ git clone https://github.com/DhanushIndrakumar/Sunbase.git
   
 + Since the port is set to localhost:2000 and the user is free to change the port if they wish.
 
-**4. Explore Rest APIs **
+**4. Explore Rest APIs**
 
 + Once the backend is working. Developer can go through the OpenApi documentation as it gives more understanding and working of the APIs.
 
@@ -79,9 +79,21 @@ git clone https://github.com/DhanushIndrakumar/Sunbase.git
 
 ![Capture4](https://github.com/DhanushIndrakumar/Sunbase/assets/111871670/a111ff6d-263b-4ea8-af75-6f7ff964ff3e)
 
-+ It can be seen that without being authenticated the user cannot access other APIs which performs operations such Updating, Deleting and Retrieving Customer Details
++ It can be seen that without being authenticated the user cannot access other APIs which performs operations such Updating, Deleting and Retrieving Customer Details.
 
 **8. Testing the API to retrive User(Customer) details with inserting JWT in the header**
+
+![Capture5](https://github.com/DhanushIndrakumar/Sunbase/assets/111871670/93af5701-7196-4b93-a565-b58322a0e52d)
+
++ It can be seen that once the user is authenticated the user can access other APIs which performs operations such Updating, Deleting and Retrieving Customer Details.
+
++ The same works for all other APIs .JWT forms the most important aspect in any security systems.
+
+**9. Running the Frontend application**
+
++ Frontend is being connected to backend APIs using Axios and it can also be performed using Fetch and Redux toolkit.
+
++  Open
 
 
 
