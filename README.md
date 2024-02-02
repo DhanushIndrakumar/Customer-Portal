@@ -21,6 +21,18 @@
 ```bash
 git clone https://github.com//
 ```
+**2. Information about the application
+
++ The Backend files and Frontend files for the application are in 2 different folders.
+
++ The Frontend was done using Vite-React app through VSCode.
+
++ The Backend was implemented using Spring Boot through IntellijIdea.
+
++ The company folder contains backend files
+
++ The frontend folder contains frontend files
+
 
 **2. Change mysql username and password as per your Mysql installation**
 
