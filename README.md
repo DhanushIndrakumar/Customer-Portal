@@ -59,12 +59,21 @@ git clone https://github.com/DhanushIndrakumar/Sunbase.git
 ```bash
     http://localhost:2000/swagger-ui.html
 ```
-
 + we need to first execute the register and login user APIs for the other APIs to work.
 
-  **5. Exploring the Api to insert or create User(Customer) in the database
+**5. Exploring the Api to insert or create User(Customer) in the database **
 
-  +The request body of the API with the response body is shown below:
++ The request body of the API with the response body is shown below:
+
+  ![Capture2](https://github.com/DhanushIndrakumar/Sunbase/assets/111871670/22f803a8-880f-4c0e-a8b5-bd6336262841)
+
+**6. Testing the Login Api
+
++ Api works in OpenApi documentation as well.The image below shows the request and the response body of the Login Api
+
+  
+
+
 
   
 
