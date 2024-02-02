@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
-import './Login.css';
-import { useNavigate } from 'react-router-dom';
+import "./Login.css";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-
+    //state variables
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
@@ -13,9 +13,8 @@ const Login = () => {
   const handleEmailChange = (e) => {
     const enteredEmail = e.target.value;
     setEmail(enteredEmail);
-
     // Validate email format
-    const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(enteredEmail);
+    const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(enteredEmail);//regular expression
     setEmailError(isValidEmail ? "" : "Please enter a valid email address");
   };
 
@@ -30,26 +29,22 @@ const Login = () => {
       // Email is not valid or fields are empty, do not submit the form
       return;
     }
-
     try {
-      const response = await axios.post("http://localhost:2000/auth/users/login", {
-        email: email,
-        password: password
-      });
-
+      const response = await axios.post(
+        "http://localhost:2000/auth/users/login",
+        {
+          email: email,
+          password: password,
+        }
+      );
       // Store the token in local storage
       const token = response.data.token;
       localStorage.setItem("token", token);
-
-      // Redirect or do something else upon successful login
       console.log("Login successful. Token:", token);
-      navigate('/showlist');
-      
-      // Redirect to another page or update state as needed
+      navigate("/showlist");
+      //If the promise is rejected
     } catch (error) {
-      // Handle error (e.g., display error message)
       console.error("Login error:", error);
-      // Optionally update state to show error message to the user
     }
   };
 

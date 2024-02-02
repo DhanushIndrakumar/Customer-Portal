@@ -1,0 +1,11 @@
+[33mcommit d5e6e68b49d3a3b2e9058a5b1fc7d1fefb5715ac[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: Admin <dhanushindrakumar123@gmail.com>
+Date:   Fri Feb 2 13:35:26 2024 +0530
+
+    Completed adding user
+
+[33mcommit c8bbd2a8a0f2a423210813238f1bbee789e40022[m
+Author: Admin <dhanushindrakumar123@gmail.com>
+Date:   Fri Feb 2 00:04:29 2024 +0530
+
+    Completed Login and CustomerList table creation
