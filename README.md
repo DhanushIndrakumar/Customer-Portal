@@ -44,7 +44,9 @@ git clone https://github.com/DhanushIndrakumar/Sunbase.git
   
 + we can run it from NetBeans or intellij IDEA.
 
-+ The app will start running at http://localhost:2000/**.Since the port is set to localhost:2000 and the user is free to change the port if they wish.
++ The app will start running at http://localhost:2000/**
+  
++ .Since the port is set to localhost:2000 and the user is free to change the port if they wish.
 
 ## Explore Rest APIs
 
