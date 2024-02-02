@@ -75,7 +75,15 @@ git clone https://github.com/DhanushIndrakumar/Sunbase.git
 
 + As seen in the above image JWT is being generated using which other APIs can be accessed without which 403 error will be shown.
 
-**7. Testing the getAllUsers API without inserting token in the header**
+**7. Testing the API to retrieve User(Customer) details without inserting token in the header**
+
+![Capture4](https://github.com/DhanushIndrakumar/Sunbase/assets/111871670/a111ff6d-263b-4ea8-af75-6f7ff964ff3e)
+
++ It can be seen that without being authenticated the user cannot access other APIs which performs operations such Updating, Deleting and Retrieving Customer Details
+
+**8. Testing the API to retrive User(Customer) details with inserting JWT in the header**
+
+
 
 
 
