@@ -117,7 +117,13 @@ git clone https://github.com/DhanushIndrakumar/Sunbase.git
 
   ![Capture10](https://github.com/DhanushIndrakumar/Sunbase/assets/111871670/71567382-735d-4b1d-a7d1-beed42122b7f)
 
-+ We can see that the user keerthana has been removed from the database.Similarly, once the edit button is clicked edit form pops up at the bottom of the webpage and edit the required details and the change persists in the database
++ We can see that the user keerthana has been removed from the database.Similarly, once the edit button is clicked edit form pops up at the bottom of the webpage and edit the required details and the change persists in the database.
+
+  ![Capture11](https://github.com/DhanushIndrakumar/Sunbase/assets/111871670/ad409bc2-3e3e-47aa-a055-81e2c63b9a3b)
+
++ The above image shows the edit form when the edit button of the user Ramesh clicked.Now if the user wishes to change the city of the user Ramesh it can be carried out.The below image shows that the change ahs been persisted.
+
+
 
 
 
