@@ -46,7 +46,7 @@ git clone https://github.com/DhanushIndrakumar/Sunbase.git
 
 + The app will start running at http://localhost:2000/**
   
-+ .Since the port is set to localhost:2000 and the user is free to change the port if they wish.
++ Since the port is set to localhost:2000 and the user is free to change the port if they wish.
 
 **4. Explore Rest APIs **
 
@@ -67,9 +67,17 @@ git clone https://github.com/DhanushIndrakumar/Sunbase.git
 
   ![Capture2](https://github.com/DhanushIndrakumar/Sunbase/assets/111871670/22f803a8-880f-4c0e-a8b5-bd6336262841)
 
-**6. Testing the Login Api
+**6. JWT generation using Login API**
 
 + Api works in OpenApi documentation as well.The image below shows the request and the response body of the Login Api
+
+  ![Capture3](https://github.com/DhanushIndrakumar/Sunbase/assets/111871670/a9e7a5cf-1110-4152-994f-49a2cddc7d14)
+
++ As seen in the above image JWT is being generated using which other APIs can be accessed without which 403 error will be shown.
+
+**7. Testing the getAllUsers API without inserting token in the header**
+
+
 
   
 
