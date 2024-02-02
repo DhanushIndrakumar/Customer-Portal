@@ -108,7 +108,7 @@ public class UserService implements UserDetailsService {
         user.setPassword(password);
 
         // Save the user
-        User savedUser = userRepository.save(user);
+        User savedUser = userRepository.save(user);//add new user to the repository
 
         // Create and return the UserResponse
         UserDTO response = new UserDTO();
@@ -135,7 +135,7 @@ public class UserService implements UserDetailsService {
         for (User user : users) {
             UserDTO userResponse = new UserDTO();
             userResponse.setUserId(user.getUserId());
-            userResponse.setFirst_name(user.getFirst_name());  // Assuming these getter methods exist
+            userResponse.setFirst_name(user.getFirst_name());
             userResponse.setLast_name(user.getLast_name());
             userResponse.setStreet(user.getStreet());
             userResponse.setAddress(user.getAddress());
@@ -150,10 +150,10 @@ public class UserService implements UserDetailsService {
     }
 public UserDTO updateUser(Long userID, UserDTO userDTO) {
     if (userRepository.existsById(userID)) {
-        // Fetch the existing user entity from the database
+        // Fetching the existing user entity from the database
         User existingUser = userRepository.findById(userID).orElse(null);
 
-        // Update the attributes of the existing user entity with the values from the DTO
+        // Updating the attributes of the existing user entity with the values from the DTO
         if (existingUser != null) {
             existingUser.setFirst_name(userDTO.getFirst_name());
             existingUser.setLast_name(userDTO.getLast_name());
@@ -164,10 +164,10 @@ public UserDTO updateUser(Long userID, UserDTO userDTO) {
             existingUser.setEmail(userDTO.getEmail());
             existingUser.setPhone(userDTO.getPhone());
 
-            // Save the updated user entity
+            // Saving the updated user entity
             User updatedUser = userRepository.save(existingUser);
 
-            // Convert the updated user entity to UserDTO
+            // Converting  the updated user entity to UserDTO
             UserDTO updatedUserDTO = new UserDTO();
             updatedUserDTO.setUserId(updatedUser.getUserId());
             updatedUserDTO.setFirst_name(updatedUser.getFirst_name());
@@ -182,7 +182,7 @@ public UserDTO updateUser(Long userID, UserDTO userDTO) {
             return updatedUserDTO;
         }
     }
-    return null; // Handle not found scenario
+    return null;
 }
 
 

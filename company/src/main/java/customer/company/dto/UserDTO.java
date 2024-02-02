@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 
-
+//UserDTo has been created inorder to avoid the extra attributes present in User Entity
 public class UserDTO {
     private Long userId;
 

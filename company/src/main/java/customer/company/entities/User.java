@@ -37,10 +37,7 @@ public class User implements UserDetails {
     private String email;
 
     private String phone;
-
-
-
-
+    //additional security attributes
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;

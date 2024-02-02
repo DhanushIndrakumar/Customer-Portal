@@ -9,7 +9,10 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.security.SecurityScheme;
 import io.swagger.v3.oas.annotations.servers.Server;
 
-@OpenAPIDefinition(
+
+//Swagger Integration
+
+@OpenAPIDefinition(  //setting various properties
         info=@Info(
                 contact=@Contact(
                         name="Dhanush",
@@ -37,7 +40,7 @@ import io.swagger.v3.oas.annotations.servers.Server;
 
 
 )
-@SecurityScheme(
+@SecurityScheme( //ensuring security
         name="bearerAuth",
         description="JWT auth description",
         scheme="bearer",
@@ -46,15 +49,6 @@ import io.swagger.v3.oas.annotations.servers.Server;
         in= SecuritySchemeIn.HEADER
 
 )
-
-
-
-
-
-
-
-
-
 public class OpenApiConfig{
 
 }

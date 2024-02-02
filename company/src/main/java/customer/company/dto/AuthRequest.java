@@ -6,7 +6,9 @@ import lombok.*;
 @Builder
 @Getter
 @Setter
+
 public class AuthRequest {
+    //Getting authenticated through providing email and password
     private String email;
     private String password;
 }

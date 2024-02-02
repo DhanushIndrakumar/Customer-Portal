@@ -29,7 +29,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ContextConfiguration(classes = {UserService.class, PasswordEncoder.class})
 @ExtendWith(SpringExtension.class)
-class UserServiceDiffblueTest {
+class UserServiceTest {
   @MockBean
   private PasswordEncoder passwordEncoder;
 
@@ -74,12 +74,12 @@ class UserServiceDiffblueTest {
    */
   @Test
   void testLogin2() {
-    // Arrange
+
     Optional<User> emptyResult = Optional.empty();
     when(userRepository.findByEmail(Mockito.<String>any())).thenReturn(emptyResult);
     AuthRequest request = AuthRequest.builder().email("test@example.org").password("test").build();
 
-    // Act and Assert
+
     assertThrows(ApplicationException.class, () -> userService.login(request));
     verify(userRepository).findByEmail(Mockito.<String>any());
   }
@@ -125,14 +125,14 @@ class UserServiceDiffblueTest {
    */
   @Test
   void getUserById2() {
-    // Arrange
+
     Optional<User> emptyResult = Optional.empty();
     when(userRepository.findById(Mockito.<Long>any())).thenReturn(emptyResult);
 
-    // Act
+
     UserDTO actualUserById = userService.getUserById(1L);
 
-    // Assert
+
     verify(userRepository).findById(Mockito.<Long>any());
     assertNull(actualUserById);
   }
@@ -142,11 +142,11 @@ class UserServiceDiffblueTest {
    */
   @Test
   void getUserById3() {
-    // Arrange
+
     when(userRepository.findById(Mockito.<Long>any()))
             .thenThrow(new ApplicationException(-1, "An error occurred", HttpStatus.CONTINUE));
 
-    // Act and Assert
+
     assertThrows(ApplicationException.class, () -> userService.getUserById(1L));
     verify(userRepository).findById(Mockito.<Long>any());
   }
@@ -207,7 +207,7 @@ class UserServiceDiffblueTest {
    */
   @Test
   void testCreateUser2() {
-    // Arrange
+
     when(passwordEncoder.encode(Mockito.<CharSequence>any())).thenReturn("secret");
     when(userRepository.save(Mockito.<User>any()))
             .thenThrow(new ApplicationException(-1, "An error occurred", HttpStatus.CONTINUE));
@@ -224,7 +224,7 @@ class UserServiceDiffblueTest {
     user.setStreet("John Street");
     user.setUserId(1L);
 
-    // Act and Assert
+
     assertThrows(ApplicationException.class, () -> userService.createUser(user));
     verify(userRepository).save(Mockito.<User>any());
     verify(passwordEncoder).encode(Mockito.<CharSequence>any());
@@ -251,11 +251,11 @@ class UserServiceDiffblueTest {
    */
   @Test
   void deleteUser2() {
-    // Arrange
+
     doThrow(new ApplicationException(-1, "An error occurred", HttpStatus.CONTINUE)).when(userRepository)
             .deleteById(Mockito.<Long>any());
 
-    // Act and Assert
+
     assertThrows(ApplicationException.class, () -> userService.deleteUser(1L));
     verify(userRepository).deleteById(Mockito.<Long>any());
   }

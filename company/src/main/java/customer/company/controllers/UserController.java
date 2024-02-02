@@ -35,7 +35,6 @@ public class UserController {
     )
 
     @PostMapping("auth/users/register")
-   // @ApiOperation("Creation of User")
     public UserDTO createUser(@RequestBody User user) {
         return userService.createUser(user);
     }
@@ -47,7 +46,6 @@ public class UserController {
     )
 
     @PostMapping("auth/users/login")
-   // @ApiOperation("Performing Login operation by providing email and password")
     public AuthResponse login(@RequestBody AuthRequest authRequest) {
         return userService.login(authRequest);
     }
@@ -57,7 +55,6 @@ public class UserController {
             summary="A particular customer details can be extracted by providing ID "
     )
     @GetMapping("users/{userID}")
-    //@ApiOperation("Retrieving a particular based on UserID ")
     public UserDTO getUserById(@PathVariable Long userID) {
         return userService.getUserById(userID);
     }
@@ -77,7 +74,6 @@ public class UserController {
             summary="A particular customer can be removed by providing ID "
     )
     @DeleteMapping("users/{userID}")
-    //@ApiOperation("Deleting a user provided the UserID")
     public void deleteUser(@PathVariable Long userID) {
         userService.deleteUser(userID);
     }

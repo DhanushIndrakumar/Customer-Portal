@@ -12,6 +12,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -30,6 +31,9 @@ public class JwtAuthFilter extends OncePerRequestFilter {
     private final JwtService jwtService;
 
     private final UserDetailsService userDetailsService;
+
+    @Value("${jwt.secret}") //256-bit secret key for JWT Authentication
+    private  String SECRET;
     @Override
     protected void doFilterInternal(
             @NonNull HttpServletRequest request,
@@ -43,8 +47,8 @@ public class JwtAuthFilter extends OncePerRequestFilter {
             filterChain.doFilter(request, response);
             return;
         }
-        jwt = authHeader.substring(7);
-        userEmail = jwtService.extractUsername(jwt);
+        jwt = authHeader.substring(7); //extracting just the token
+        userEmail = jwtService.extractUsername(jwt);//extracting userEmail from the jwt
         if (userEmail != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             User userDetails = (User) this.userDetailsService.loadUserByUsername(userEmail);
             if (jwtService.validateToken(jwt, userDetails)) {
@@ -97,7 +101,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
     }
 
     private Key getSignInKey() {
-        byte[] keyBytes = Decoders.BASE64.decode("77397A244326462948404D635166546A576E5A7234753778214125442A472D4B");
+        byte[] keyBytes = Decoders.BASE64.decode(SECRET);
         return Keys.hmacShaKeyFor(keyBytes);
     }
 
