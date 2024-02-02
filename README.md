@@ -48,7 +48,7 @@ git clone https://github.com/DhanushIndrakumar/Sunbase.git
   
 + .Since the port is set to localhost:2000 and the user is free to change the port if they wish.
 
-## Explore Rest APIs
+**4. Explore Rest APIs **
 
 + Once the backend is working. Developer can go through the OpenApi documentation as it gives more understanding and working of the APIs.
 
@@ -60,5 +60,15 @@ git clone https://github.com/DhanushIndrakumar/Sunbase.git
     http://localhost:2000/swagger-ui.html
 ```
 
-+ we need to have privileges to run the other Api's.
++ we need to first execute the register and login user APIs for the other APIs to work.
+
+  **5. Exploring the Api to insert or create User(Customer) in the database
+
+  +The request body of the API with the response body is shown below:
+
+  
+
+  
+
+  
 
