@@ -113,7 +113,13 @@ git clone https://github.com/DhanushIndrakumar/Sunbase.git
 
   ![Capture9](https://github.com/DhanushIndrakumar/Sunbase/assets/111871670/5998b985-1c83-4c5c-9128-39321f586231)
 
-+ Once the user Clicks on Delete button and refresh the page, user will be removed from the database.
++ Once the user Clicks on Delete button, user will be removed from the database.
+
+  ![Capture10](https://github.com/DhanushIndrakumar/Sunbase/assets/111871670/71567382-735d-4b1d-a7d1-beed42122b7f)
+
++ We can see that the user keerthana has been removed from the database.Similarly, once the edit button is clicked edit form pops up at the bottom of the webpage and edit the required details and the change persists in the database
+
+
 
   
 
