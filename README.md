@@ -19,7 +19,7 @@
 **1. Clone the application**
 
 ```bash
-git clone https://github.com//.
+git clone https://github.com/DhanushIndrakumar/Sunbase.git
 ```
 **2. Key points of the application**
 
@@ -39,4 +39,22 @@ git clone https://github.com//.
 + open `company/src/main/resources/application.properties`
 
 + change `spring.datasource.username` and `spring.datasource.password` as per your mysql installation
+
++ after changing both the username and password as per your mysql installation
+  
++ we can run it from NetBeans or intellij IDEA.
+
++ The app will start running at http://localhost:2000/**.Since the port is set to localhost:2000 and the user is free to change the port if they wish.
+
+## Explore Rest APIs
+
++ Once the backend is working. Developer can go through the OpenApi documentation as it gives more understanding and working of the APIs. 
+
++ We can see the API Documentation at
+
+```bash
+    http://localhost:2000/swagger-ui.html
+```
+
++ we need to have privileges to run the other Api's.
 
