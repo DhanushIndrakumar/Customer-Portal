@@ -71,7 +71,7 @@ git clone https://github.com/DhanushIndrakumar/Sunbase.git
 
 **6. JWT generation using Login API**
 
-+ Api works in OpenApi documentation as well.The image below shows the request and the response body of the Login Api
++ Api works in OpenApi documentation as well.The image below shows the request and the response body of the Login Api.
 
   ![Capture3](https://github.com/DhanushIndrakumar/Sunbase/assets/111871670/a9e7a5cf-1110-4152-994f-49a2cddc7d14)
 
@@ -95,7 +95,7 @@ git clone https://github.com/DhanushIndrakumar/Sunbase.git
 
 + Frontend is being connected to backend APIs using Axios and it can also be performed using Fetch and Redux toolkit.
 
-+ Open Frontend Folder through VSCode after cloning and give the command npm run dev
++ Open Frontend Folder through VSCode after cloning and give the command npm run dev.
 
 + The first page that appears is as shown below:
 
@@ -121,11 +121,11 @@ git clone https://github.com/DhanushIndrakumar/Sunbase.git
 
   ![Capture11](https://github.com/DhanushIndrakumar/Sunbase/assets/111871670/ad409bc2-3e3e-47aa-a055-81e2c63b9a3b)
 
-+ The above image shows the edit form when the edit button of the user Ramesh clicked.Now if the user wishes to change the city of the user Ramesh it can be carried out.The below image shows that the change ahs been persisted(City has been changed from Bangalore to hyderabad).
++ The above image shows the edit form when the edit button of the user Ramesh clicked.Now if the user wishes to change the city of the user Ramesh it can be carried out.The below image shows that the change has been persisted(City has been changed from Bangalore to hyderabad).
 
   ![Capture12](https://github.com/DhanushIndrakumar/Sunbase/assets/111871670/8ba2b36e-84ce-4760-9596-8f1634d6651a)
 
-+ Likewise, add and search operation can also be performed.For instance if the user had to look out for the name Ramesh they can use the search bar and matching records will be shown. The same is being observed in the below image.
++ Likewise, Add and Search operation can also be performed.For instance if the user had to look out for the name Ramesh they can use the search bar and matching records will be shown. The same is being observed in the below image.
 
   ![Capture13](https://github.com/DhanushIndrakumar/Sunbase/assets/111871670/7999a5b7-841e-48c4-90f2-498322f8a8ab)
 
