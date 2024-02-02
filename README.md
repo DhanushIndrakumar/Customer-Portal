@@ -121,7 +121,14 @@ git clone https://github.com/DhanushIndrakumar/Sunbase.git
 
   ![Capture11](https://github.com/DhanushIndrakumar/Sunbase/assets/111871670/ad409bc2-3e3e-47aa-a055-81e2c63b9a3b)
 
-+ The above image shows the edit form when the edit button of the user Ramesh clicked.Now if the user wishes to change the city of the user Ramesh it can be carried out.The below image shows that the change ahs been persisted.
++ The above image shows the edit form when the edit button of the user Ramesh clicked.Now if the user wishes to change the city of the user Ramesh it can be carried out.The below image shows that the change ahs been persisted(City has been changed from Bangalore to hyderabad).
+
+  ![Capture12](https://github.com/DhanushIndrakumar/Sunbase/assets/111871670/8ba2b36e-84ce-4760-9596-8f1634d6651a)
+
++ Likewise, add and search operation can also be performed.For instance if the user had to look out for the name Ramesh they can use the search bar and matching records will be shown. The same is being observed in the below image.
+
+  
+
 
 
 
